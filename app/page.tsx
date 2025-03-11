@@ -5,6 +5,48 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
+const skills = {
+  frontend: [
+    {
+      name: "React",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      level: 50
+    },
+    {
+      name: "TypeScript",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      level: 50
+    },
+    {
+      name: "Tailwind CSS",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+      level: 60
+    }
+  ],
+  backend: [
+    {
+      name: "Laravel",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
+      level: 90
+    },
+    {
+      name: "Django",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+      level: 85
+    },
+    {
+      name: "PostgreSQL",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+      level: 82
+    },
+    {
+      name: "GraphQL",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+      level: 75
+    }
+  ]
+};
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-background via-secondary/50 to-background">
@@ -23,24 +65,32 @@ export default function Home() {
           </div>
           <div className="space-y-4">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              John Doe
+              Sauman Arshad
             </h1>
             <p className="text-xl text-muted-foreground">Full Stack Engineer</p>
           </div>
           <div className="flex gap-4">
-            <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
-              <Github className="h-5 w-5" />
-            </Button>
-            <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
-              <Linkedin className="h-5 w-5" />
-            </Button>
-            <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
-              <Mail className="h-5 w-5" />
-            </Button>
+            <a href="https://github.com/saumanarsad" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
+                <Github className="h-5 w-5" />
+              </Button>
+            </a>
+            <a href="https://www.linkedin.com/in/saumanarshad/" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
+                <Linkedin className="h-5 w-5" />
+              </Button>
+            </a>
+            <a href="mailto:sauman.arshad@gmail.com">
+              <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
+                <Mail className="h-5 w-5" />
+              </Button>
+            </a>
           </div>
-          <Button className="mt-8 rounded-full px-8 hover:scale-105 transition-transform bg-gradient-to-r from-primary to-primary/90">
-            <Download className="mr-2 h-4 w-4" /> Download Resume
-          </Button>
+          <a href="https://drive.google.com/file/d/1-tQGQ23lOsTGKXXV1PWhtLi-17DN2kIx/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <Button className="mt-8 rounded-full px-8 hover:scale-105 transition-transform bg-gradient-to-r from-primary to-primary/90">
+              <Download className="mr-2 h-4 w-4" /> Download Resume
+            </Button>
+          </a>
         </div>
 
         {/* Main Content */}
@@ -99,49 +149,53 @@ export default function Home() {
 
           <TabsContent value="skills" className="mt-8">
             <Card className="p-8 backdrop-blur-sm bg-card/50">
-              <h2 className="text-2xl font-semibold mb-6">Skills</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <h3 className="text-lg font-medium">Frontend</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      React.js / Next.js
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      TypeScript
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Tailwind CSS
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Redux / Zustand
-                    </li>
-                  </ul>
+              <h2 className="text-2xl font-semibold mb-8">Technical Skills</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                  <h3 className="text-xl font-medium mb-6 flex items-center gap-2">
+                    <Code className="h-5 w-5" /> Frontend Development
+                  </h3>
+                  <div className="space-y-6">
+                    {skills.frontend.map((skill) => (
+                      <div key={skill.name} className="group">
+                        <div className="flex items-center gap-4 mb-2">
+                          <div className="w-8 h-8 rounded-lg bg-background/80 p-1.5 shadow-sm">
+                            <img src={skill.logo} alt={skill.name} className="w-full h-full" />
+                          </div>
+                          <span className="font-medium">{skill.name}</span>
+                        </div>
+                        <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-500 ease-out group-hover:opacity-80"
+                            style={{ width: `${skill.level}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="space-y-4">
-                  <h3 className="text-lg font-medium">Backend</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Node.js / Express
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Python / Django
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      PostgreSQL / MongoDB
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      RESTful APIs / GraphQL
-                    </li>
-                  </ul>
+                <div>
+                  <h3 className="text-xl font-medium mb-6 flex items-center gap-2">
+                    <Cpu className="h-5 w-5" /> Backend Development
+                  </h3>
+                  <div className="space-y-6">
+                    {skills.backend.map((skill) => (
+                      <div key={skill.name} className="group">
+                        <div className="flex items-center gap-4 mb-2">
+                          <div className="w-8 h-8 rounded-lg bg-background/80 p-1.5 shadow-sm">
+                            <img src={skill.logo} alt={skill.name} className="w-full h-full" />
+                          </div>
+                          <span className="font-medium">{skill.name}</span>
+                        </div>
+                        <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-500 ease-out group-hover:opacity-80"
+                            style={{ width: `${skill.level}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </Card>
@@ -182,8 +236,8 @@ export default function Home() {
               <div className="space-y-8">
                 <div className="relative pl-6 border-l-2 border-primary/30">
                   <div className="absolute w-3 h-3 bg-primary rounded-full -left-[7px] top-2"></div>
-                  <h3 className="text-xl font-medium">Senior Full Stack Engineer</h3>
-                  <p className="text-muted-foreground mb-3">Tech Corp • 2021 - Present</p>
+                  <h3 className="text-xl font-medium">Software Engineer</h3>
+                  <p className="text-muted-foreground mb-3">Dubizzle Labs • 2023 - Present</p>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
