@@ -297,53 +297,47 @@ export default function Home() {
 
           <TabsContent value="projects" className="mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+              {/* Sales Companion (CRM) */}
               <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
                 <h3 className="text-xl font-semibold mb-3">Sales Companion (CRM)</h3>
                 <p className="text-muted-foreground mb-6">
-                  A feature-rich CRM built for sales teams, leveraging Laravel and PostgreSQL for scalability and performance. </p>
-                <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="rounded-full">
-                    <Github className="mr-2 h-4 w-4" /> View Code
-                  </Button>
-                  <Button size="sm" className="rounded-full">Live Demo</Button>
-                </div>
-              </Card>
-              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
-                <h3 className="text-xl font-semibold mb-3">Arena Management Application</h3>
-                <p className="text-muted-foreground mb-6">
-                  A web application designed for managing sports arenas, bookings, and events efficiently.
+                  A <strong>feature-rich CRM</strong> designed for sales teams to <strong>track leads, manage clients, and boost productivity</strong>.
+                  Built with <strong>Laravel, PostgreSQL, and Livewire</strong>, it offers <strong>real-time analytics, automated workflows, and role-based access control</strong>.
                 </p>
-                <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="rounded-full">
-                    <Github className="mr-2 h-4 w-4" /> View Code
-                  </Button>
-                  <Button size="sm" className="rounded-full">Live Demo</Button>
-                </div>
               </Card>
+
+              {/* Foodica – AI Calorie Tracker */}
+              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
+                <h3 className="text-xl font-semibold mb-3">Foodica – AI Calorie Tracker</h3>
+                <p className="text-muted-foreground mb-6">
+                  A <strong>React Native</strong> mobile app powered by <strong>AI-based food recognition</strong> to estimate caloric values from images.
+                  Utilizes <strong>TensorFlow for CNNs</strong> to accurately detect and classify food items.
+                  Built with <strong>React Native, TensorFlow, and OpenCV</strong> to provide <strong>real-time nutritional insights and meal tracking</strong> for a healthier lifestyle.
+                </p>
+
+              </Card>
+
+              {/* AI Facial Detector */}
+              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
+                <h3 className="text-xl font-semibold mb-3">AI Facial Detector</h3>
+                <p className="text-muted-foreground mb-6">
+                  A <strong>cutting-edge AI facial recognition app</strong> that detects and analyzes faces in real-time.
+                  Built using <strong>React Native, TensorFlow.js, and OpenCV</strong>, it enables <strong>biometric authentication, emotion detection, and security monitoring</strong>.
+                </p>
+              </Card>
+
+              {/* E-Commerce Platform */}
               <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
                 <h3 className="text-xl font-semibold mb-3">E-Commerce Platform</h3>
                 <p className="text-muted-foreground mb-6">
-                  A full-stack e-commerce solution with real-time inventory management.
+                  A <strong>full-stack</strong> e-commerce solution with real-time inventory updates.
+                  Developed with <strong>Node.js, Express, and MongoDB</strong>.
                 </p>
-                <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="rounded-full">
-                    <Github className="mr-2 h-4 w-4" /> View Code
-                  </Button>
-                  <Button size="sm" className="rounded-full">Live Demo</Button>
-                </div>
               </Card>
-              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
-                <h3 className="text-xl font-semibold mb-3">Task Management App</h3>
-                <p className="text-muted-foreground mb-6">
-                  A collaborative task management tool with real-time updates.
-                </p>
-                <div className="flex gap-3">
-                  <Button variant="outline" size="sm" className="rounded-full">
-                    <Github className="mr-2 h-4 w-4" /> View Code
-                  </Button>
-                  <Button size="sm" className="rounded-full">Live Demo</Button>
-                </div>
-              </Card>
+
+
+
             </div>
           </TabsContent>
 
