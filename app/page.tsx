@@ -49,7 +49,7 @@ const skills = {
     {
       name: "Django",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-      level: 85
+      level: 70
     },
     {
       name: "PostgreSQL",
