@@ -293,6 +293,33 @@ export default function Home() {
           <TabsContent value="projects" className="mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
+                <h3 className="text-xl font-semibold mb-3">Sales Companion (CRM)</h3>
+                <p className="text-muted-foreground mb-6">
+                  A feature-rich CRM built for sales teams, leveraging Laravel and PostgreSQL for scalability and performance. </p>
+                <div className="flex gap-3">
+                  <Button variant="outline" size="sm" className="rounded-full">
+                    <Github className="mr-2 h-4 w-4" /> View Code
+                  </Button>
+                  <Button size="sm" className="rounded-full">Live Demo</Button>
+                </div>
+              </Card>
+
+
+              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
+                <h3 className="text-xl font-semibold mb-3">Arena Management Application</h3>
+                <p className="text-muted-foreground mb-6">
+                  A web application designed for managing sports arenas, bookings, and events efficiently.
+                </p>
+                <div className="flex gap-3">
+                  <Button variant="outline" size="sm" className="rounded-full">
+                    <Github className="mr-2 h-4 w-4" /> View Code
+                  </Button>
+                  <Button size="sm" className="rounded-full">Live Demo</Button>
+                </div>
+              </Card>
+
+
+              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
                 <h3 className="text-xl font-semibold mb-3">E-Commerce Platform</h3>
                 <p className="text-muted-foreground mb-6">
                   A full-stack e-commerce solution with real-time inventory management.
@@ -304,6 +331,10 @@ export default function Home() {
                   <Button size="sm" className="rounded-full">Live Demo</Button>
                 </div>
               </Card>
+
+
+
+
               <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
                 <h3 className="text-xl font-semibold mb-3">Task Management App</h3>
                 <p className="text-muted-foreground mb-6">
