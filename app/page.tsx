@@ -1,6 +1,6 @@
 'use client';
 
-import { Download, Github, Linkedin, Mail, User, Code, Server, Briefcase, Cpu } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, User, Code, Server, Briefcase, Cpu, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -130,6 +130,11 @@ export default function Home() {
             <a href="mailto:sauman.arshad@gmail.com">
               <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
                 <Mail className="h-5 w-5" />
+              </Button>
+            </a>
+            <a href="https://wa.me/+923314318867" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
+                <Phone className="h-5 w-5" />
               </Button>
             </a>
           </div>
