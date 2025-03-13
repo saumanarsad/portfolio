@@ -1,9 +1,11 @@
 'use client';
 
-import { Download, Github, Linkedin, Mail, User, Code, Briefcase, Cpu } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, User, Code, Server, Briefcase, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import ProfilePic from "../assets/Professional.jpeg";
+import Image from "next/image";
 
 const skills = {
   frontend: [
@@ -19,7 +21,22 @@ const skills = {
     },
     {
       name: "Tailwind CSS",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+      level: 60
+    },
+    {
+      name: "Vue.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+      level: 70
+    },
+    {
+      name: "JavaScript",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      level: 85
+    },
+    {
+      name: "Next.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
       level: 60
     }
   ],
@@ -37,15 +54,48 @@ const skills = {
     {
       name: "PostgreSQL",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-      level: 82
+      level: 90
     },
     {
       name: "GraphQL",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
       level: 75
+    },
+    {
+      name: "Node.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      level: 80
+    },
+    {
+      name: "MySQL",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+      level: 85
+    }
+  ],
+  devops: [
+    {
+      name: "Docker",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+      level: 75
+    },
+    {
+      name: "AWS",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
+      level: 60
+    },
+    {
+      name: "CI/CD (GitHub Actions)",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+      level: 70
+    },
+    {
+      name: "Nginx",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
+      level: 65
     }
   ]
 };
+
 
 export default function Home() {
   return (
@@ -56,11 +106,8 @@ export default function Home() {
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-secondary/40 to-primary/20 rounded-full blur"></div>
             <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-background to-secondary flex items-center justify-center p-1">
-              <img
-                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=200&h=200&fit=crop"
-                alt="Profile"
-                className="w-full h-full rounded-full object-cover ring-2 ring-background"
-              />
+              <img src="/Professional.jpeg" alt="Profile" width="200" height="200" className="rounded-full object-cover" />
+
             </div>
           </div>
           <div className="space-y-4">
@@ -140,17 +187,36 @@ export default function Home() {
             <Card className="p-8 backdrop-blur-sm bg-card/50">
               <h2 className="text-2xl font-semibold mb-4">About Me</h2>
               <p className="text-muted-foreground">
-                I am a passionate Full Stack Engineer with expertise in modern web technologies.
-                With a strong foundation in both frontend and backend development, I create
-                scalable and efficient solutions that solve real-world problems.
+                As a graduate of Ghulam Ishaq Khan Institute of Engineering Sciences and Technology with a
+                Bachelor's degree in Computer Science, I have a passion for designing and developing
+                applications that solve real-world problems.
+                I have gained valuable skills and experience in back-end web development using Django
+                and Laravel frameworks, working on various projects as a freelance developer.
+              </p>
+
+              <p className="text-muted-foreground mt-4">
+                Currently, I am a Software Engineer at Dubizzle Labs, where I work with a team of talented
+                engineers to build and maintain scalable and reliable web services for Dubizzle using
+                the Laravel framework. Dubizzle is the leading classifieds platform in the MENA region.
+                I enjoy learning new technologies and techniques, as well as collaborating with other
+                developers and stakeholders to deliver high-quality products that meet the needs and
+                expectations of our users.
+              </p>
+
+              <p className="text-muted-foreground mt-4">
+                My goal is to continue to grow and improve as a software developer and to contribute to
+                the innovation and success of Dubizzle Labs and the software development industry.
+                I am always eager to take on new challenges and opportunities, applying my analytical
+                skills and creativity to create impactful and user-friendly solutions.
               </p>
             </Card>
           </TabsContent>
 
+
           <TabsContent value="skills" className="mt-8">
             <Card className="p-8 backdrop-blur-sm bg-card/50">
               <h2 className="text-2xl font-semibold mb-8">Technical Skills</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 <div>
                   <h3 className="text-xl font-medium mb-6 flex items-center gap-2">
                     <Code className="h-5 w-5" /> Frontend Development
@@ -180,6 +246,29 @@ export default function Home() {
                   </h3>
                   <div className="space-y-6">
                     {skills.backend.map((skill) => (
+                      <div key={skill.name} className="group">
+                        <div className="flex items-center gap-4 mb-2">
+                          <div className="w-8 h-8 rounded-lg bg-background/80 p-1.5 shadow-sm">
+                            <img src={skill.logo} alt={skill.name} className="w-full h-full" />
+                          </div>
+                          <span className="font-medium">{skill.name}</span>
+                        </div>
+                        <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-500 ease-out group-hover:opacity-80"
+                            style={{ width: `${skill.level}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-6 flex items-center gap-2">
+                    <Server className="h-5 w-5" /> DevOps & Cloud
+                  </h3>
+                  <div className="space-y-6">
+                    {skills.devops.map((skill) => (
                       <div key={skill.name} className="group">
                         <div className="flex items-center gap-4 mb-2">
                           <div className="w-8 h-8 rounded-lg bg-background/80 p-1.5 shadow-sm">
@@ -237,44 +326,75 @@ export default function Home() {
                 <div className="relative pl-6 border-l-2 border-primary/30">
                   <div className="absolute w-3 h-3 bg-primary rounded-full -left-[7px] top-2"></div>
                   <h3 className="text-xl font-medium">Software Engineer</h3>
-                  <p className="text-muted-foreground mb-3">Dubizzle Labs • 2023 - Present</p>
+                  <p className="text-muted-foreground mb-3">Dubizzle Labs • Apr 2024 - Present</p>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Led development of microservices architecture
+                      Built a powerful CRM system using Filament PHP for 10,000+ sales users.
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Implemented CI/CD pipelines
+                      Mastered Eloquent ORM, optimized data storage, and built dynamic dashboards.
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Mentored junior developers
+                      Enhanced frontend with Tailwind CSS and Livewire.
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
+                      Ensured code quality and provided constructive team feedback.
                     </li>
                   </ul>
                 </div>
                 <div className="relative pl-6 border-l-2 border-primary/30">
                   <div className="absolute w-3 h-3 bg-primary rounded-full -left-[7px] top-2"></div>
-                  <h3 className="text-xl font-medium">Full Stack Developer</h3>
-                  <p className="text-muted-foreground mb-3">StartUp Inc • 2019 - 2021</p>
+                  <h3 className="text-xl font-medium">Associate Software Engineer</h3>
+                  <p className="text-muted-foreground mb-3">Dubizzle Labs • Jul 2023 - Apr 2024</p>
                   <ul className="space-y-2 text-muted-foreground">
                     <li className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Developed full-stack web applications
+                      Developed web apps with Laravel and React for high-traffic platforms.
+                    </li>
+                  </ul>
+                </div>
+                <div className="relative pl-6 border-l-2 border-primary/30">
+                  <div className="absolute w-3 h-3 bg-primary rounded-full -left-[7px] top-2"></div>
+                  <h3 className="text-xl font-medium">Back End Developer</h3>
+                  <p className="text-muted-foreground mb-3">Upwork • Oct 2020 - Jun 2023</p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
+                      Built and optimized web applications for various industries.
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Optimized database performance
+                      Conducted client requirement analysis and implemented customized solutions.
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Implemented responsive designs
+                      Ensured security, performance optimization, and testing.
+                    </li>
+                  </ul>
+                </div>
+                <div className="relative pl-6 border-l-2 border-primary/30">
+                  <div className="absolute w-3 h-3 bg-primary rounded-full -left-[7px] top-2"></div>
+                  <h3 className="text-xl font-medium">Software Engineer Intern</h3>
+                  <p className="text-muted-foreground mb-3">Arbisoft • Jun 2022 - Sep 2022</p>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
+                      Developed web applications using Python and Django.
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
+                      Implemented Django ORM for efficient database management.
                     </li>
                   </ul>
                 </div>
               </div>
             </Card>
           </TabsContent>
+
         </Tabs>
       </div>
     </main>
