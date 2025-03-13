@@ -303,8 +303,6 @@ export default function Home() {
                   <Button size="sm" className="rounded-full">Live Demo</Button>
                 </div>
               </Card>
-
-
               <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
                 <h3 className="text-xl font-semibold mb-3">Arena Management Application</h3>
                 <p className="text-muted-foreground mb-6">
@@ -317,8 +315,6 @@ export default function Home() {
                   <Button size="sm" className="rounded-full">Live Demo</Button>
                 </div>
               </Card>
-
-
               <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
                 <h3 className="text-xl font-semibold mb-3">E-Commerce Platform</h3>
                 <p className="text-muted-foreground mb-6">
@@ -331,10 +327,6 @@ export default function Home() {
                   <Button size="sm" className="rounded-full">Live Demo</Button>
                 </div>
               </Card>
-
-
-
-
               <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
                 <h3 className="text-xl font-semibold mb-3">Task Management App</h3>
                 <p className="text-muted-foreground mb-6">
