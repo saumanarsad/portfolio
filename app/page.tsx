@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ProfilePic from "../assets/Professional.jpeg";
 import Image from "next/image";
+import { Analytics } from "@vercel/analytics/react"
 import Link from "next/link";
 
 const skills = {
