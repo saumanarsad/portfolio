@@ -1,11 +1,12 @@
 'use client';
 
-import { Download, Github, Linkedin, Mail, User, Code, Server, Briefcase, Cpu, Phone } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, User, Code, ExternalLink, Server, Briefcase, Cpu, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ProfilePic from "../assets/Professional.jpeg";
 import Image from "next/image";
+import Link from "next/link";
 
 const skills = {
   frontend: [
@@ -328,12 +329,27 @@ export default function Home() {
               </Card>
 
               {/* E-Commerce Platform */}
-              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
-                <h3 className="text-xl font-semibold mb-3">E-Commerce Platform</h3>
+              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold mb-3">AI Blog Summarizer</h3>
                 <p className="text-muted-foreground mb-6">
-                  A <strong>full-stack</strong> e-commerce solution with real-time inventory updates.
-                  Developed with <strong>Node.js, Express, and MongoDB</strong>.
+                  A <strong>React Application</strong> that utilizes OpenAI APIs to extract summaries from text.
+                  Developed with <strong>React.js, Tailwind, OpenAI</strong>.
                 </p>
+                <div className="flex gap-4">
+                  {/* GitHub Button */}
+                  <Link href="https://github.com/saumanarsad/AI-Blog-Summary" target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="gap-2">
+                      <Github size={18} /> GitHub
+                    </Button>
+                  </Link>
+
+                  {/* Live Project Button */}
+                  <Link href="https://ai-blog-summary.vercel.app/" target="_blank" rel="noopener noreferrer">
+                    <Button variant="default" className="gap-2">
+                      <ExternalLink size={18} /> Live Project
+                    </Button>
+                  </Link>
+                </div>
               </Card>
 
 
