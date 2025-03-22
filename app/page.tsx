@@ -100,6 +100,7 @@ const skills = {
 
 
 export default function Home() {
+  <Analytics />
   return (
     <main className="min-h-screen bg-gradient-to-br from-background via-secondary/50 to-background">
       {/* Hero Section */}
