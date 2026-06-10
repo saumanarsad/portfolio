@@ -1,154 +1,206 @@
-'use client';
+"use client";
 
-import { Download, Github, Linkedin, Mail, User, Code, ExternalLink, Server, Briefcase, Cpu, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import ProfilePic from "../assets/Professional.jpeg";
-import Image from "next/image";
-import { Analytics } from "@vercel/analytics/react"
+import {
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  User,
+  Code,
+  Server,
+  Briefcase,
+  Cpu,
+  Phone,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Analytics } from "@vercel/analytics/react";
 import Link from "next/link";
 
 const skills = {
-  frontend: [
+  backend: [
     {
-      name: "React",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-      level: 50
+      name: "Node.js",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+      level: 90,
     },
     {
       name: "TypeScript",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-      level: 50
+      level: 85,
     },
     {
-      name: "Tailwind CSS",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-      level: 60
+      name: "NestJS",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
+      level: 80,
     },
     {
-      name: "Vue.js",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
-      level: 70
-    },
-    {
-      name: "JavaScript",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-      level: 85
-    },
-    {
-      name: "Next.js",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-      level: 60
-    }
-  ],
-  backend: [
-    {
-      name: "Laravel",
+      name: "Laravel / PHP",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg",
-      level: 90
-    },
-    {
-      name: "Django",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-      level: 70
+      level: 90,
     },
     {
       name: "PostgreSQL",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-      level: 90
+      level: 85,
     },
     {
-      name: "GraphQL",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
-      level: 75
+      name: "MongoDB",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+      level: 75,
     },
     {
-      name: "Node.js",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-      level: 80
+      name: "Redis",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+      level: 80,
     },
     {
       name: "MySQL",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-      level: 85
-    }
+      level: 85,
+    },
   ],
-  devops: [
+  infra: [
     {
       name: "Docker",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-      level: 75
+      level: 80,
     },
     {
       name: "AWS",
       logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-      level: 60
+      level: 70,
     },
     {
       name: "CI/CD (GitHub Actions)",
       logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-      level: 70
+      level: 75,
     },
     {
-      name: "Nginx",
-      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
-      level: 65
-    }
-  ]
+      name: "Elasticsearch",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg",
+      level: 70,
+    },
+  ],
+  ai: [
+    {
+      name: "BullMQ",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
+      level: 85,
+    },
+    {
+      name: "Anthropic Claude API",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg",
+      level: 80,
+    },
+    {
+      name: "OpenAI API",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      level: 75,
+    },
+    {
+      name: "MCP (Model Context Protocol)",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg",
+      level: 80,
+    },
+  ],
 };
 
-
 export default function Home() {
-  <Analytics />
   return (
     <main className="min-h-screen bg-gradient-to-br from-background via-secondary/50 to-background">
-      {/* Hero Section */}
+      <Analytics />
       <div className="container mx-auto px-4 py-16">
+        {/* Hero */}
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-secondary/40 to-primary/20 rounded-full blur"></div>
             <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-background to-secondary flex items-center justify-center p-1">
-              <img src="/Professional.jpeg" alt="Profile" width="200" height="200" className="rounded-full object-cover" />
-
+              <img
+                src="/Professional.jpeg"
+                alt="Sauman Arshad"
+                width="200"
+                height="200"
+                className="rounded-full object-cover"
+              />
             </div>
           </div>
           <div className="space-y-4">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
               Sauman Arshad
             </h1>
-            <p className="text-xl text-muted-foreground">Full Stack Engineer</p>
+            <p className="text-xl text-muted-foreground">
+              Backend Engineer · Workflow Automation & AI Systems
+            </p>
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+              3 years building event-driven backends, AI agentic pipelines, and
+              distributed systems. Node.js, TypeScript, NestJS, BullMQ,
+              PostgreSQL, Redis, AWS.
+            </p>
           </div>
           <div className="flex gap-4">
-            <a href="https://github.com/saumanarsad" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
+            <a
+              href="https://github.com/saumanarsad"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="outline"
+                size="icon"
+                className="rounded-full hover:scale-110 transition-transform"
+              >
                 <Github className="h-5 w-5" />
               </Button>
             </a>
-            <a href="https://www.linkedin.com/in/saumanarshad/" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
+            <a
+              href="https://www.linkedin.com/in/saumanarshad/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="outline"
+                size="icon"
+                className="rounded-full hover:scale-110 transition-transform"
+              >
                 <Linkedin className="h-5 w-5" />
               </Button>
             </a>
             <a href="mailto:sauman.arshad@gmail.com">
-              <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
+              <Button
+                variant="outline"
+                size="icon"
+                className="rounded-full hover:scale-110 transition-transform"
+              >
                 <Mail className="h-5 w-5" />
               </Button>
             </a>
-            <a href="https://wa.me/+923314318867" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" size="icon" className="rounded-full hover:scale-110 transition-transform">
+            <a
+              href="https://wa.me/+923314318867"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="outline"
+                size="icon"
+                className="rounded-full hover:scale-110 transition-transform"
+              >
                 <Phone className="h-5 w-5" />
               </Button>
             </a>
           </div>
-          <a href="https://drive.google.com/file/d/1-tQGQ23lOsTGKXXV1PWhtLi-17DN2kIx/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://drive.google.com/file/d/1ELIR2iOQbC57vewQ9fSx41OYi5CIaEge/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button className="mt-8 rounded-full px-8 hover:scale-105 transition-transform bg-gradient-to-r from-primary to-primary/90">
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </Button>
           </a>
         </div>
 
-        {/* Main Content */}
+        {/* Tabs */}
         <Tabs defaultValue="about" className="mt-16">
           <div className="flex justify-center mb-12">
             <TabsList className="grid grid-cols-4 h-[60px] items-center rounded-full bg-secondary/50 backdrop-blur-sm p-1 gap-1">
@@ -191,73 +243,60 @@ export default function Home() {
             </TabsList>
           </div>
 
+          {/* About */}
           <TabsContent value="about" className="mt-8">
             <Card className="p-8 backdrop-blur-sm bg-card/50">
               <h2 className="text-2xl font-semibold mb-4">About Me</h2>
               <p className="text-muted-foreground">
-                As a graduate of Ghulam Ishaq Khan Institute of Engineering Sciences and Technology with a
-                Bachelor's degree in Computer Science, I have a passion for designing and developing
-                applications that solve real-world problems.
-                I have gained valuable skills and experience in back-end web development using Django
-                and Laravel frameworks, working on various projects as a freelance developer.
+                I'm a backend engineer with 3 years of experience building
+                scalable, event-driven systems. My core stack is Node.js,
+                TypeScript, NestJS, BullMQ, PostgreSQL, Redis, and AWS. I work
+                remotely at a US-based SaaS company where I architect backend
+                infrastructure for workflow automation and AI-native products.
               </p>
-
               <p className="text-muted-foreground mt-4">
-                Currently, I am a Software Engineer at Dubizzle Labs, where I work with a team of talented
-                engineers to build and maintain scalable and reliable web services for Dubizzle using
-                the Laravel framework. Dubizzle is the leading classifieds platform in the MENA region.
-                I enjoy learning new technologies and techniques, as well as collaborating with other
-                developers and stakeholders to deliver high-quality products that meet the needs and
-                expectations of our users.
+                Recently, I designed and built an MCP-based agentic loop from
+                scratch, a text-to-workflow AI system that lets users describe a
+                business process in plain English and automatically generates
+                executable workflows. The system uses a five-tool architecture
+                (search, schema resolution, external data fetching, workflow
+                creation, and graph persistence), a registry pattern for tool
+                orchestration, and has been tested across Claude, Gemini,
+                Ollama, and Grok with documented comparative findings.
               </p>
-
               <p className="text-muted-foreground mt-4">
-                My goal is to continue to grow and improve as a software developer and to contribute to
-                the innovation and success of Dubizzle Labs and the software development industry.
-                I am always eager to take on new challenges and opportunities, applying my analytical
-                skills and creativity to create impactful and user-friendly solutions.
+                Before that, I spent two years at Dubizzle Labs (the leading
+                classifieds platform in MENA) building high-traffic web services
+                in Laravel. I hold a CS degree from Ghulam Ishaq Khan Institute
+                of Engineering Sciences and Technology.
+              </p>
+              <p className="text-muted-foreground mt-4">
+                I'm interested in backend engineering roles focused on
+                distributed systems, event-driven architecture, or AI
+                infrastructure.
               </p>
             </Card>
           </TabsContent>
 
-
+          {/* Skills */}
           <TabsContent value="skills" className="mt-8">
             <Card className="p-8 backdrop-blur-sm bg-card/50">
               <h2 className="text-2xl font-semibold mb-8">Technical Skills</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 <div>
                   <h3 className="text-xl font-medium mb-6 flex items-center gap-2">
-                    <Code className="h-5 w-5" /> Frontend Development
-                  </h3>
-                  <div className="space-y-6">
-                    {skills.frontend.map((skill) => (
-                      <div key={skill.name} className="group">
-                        <div className="flex items-center gap-4 mb-2">
-                          <div className="w-8 h-8 rounded-lg bg-background/80 p-1.5 shadow-sm">
-                            <img src={skill.logo} alt={skill.name} className="w-full h-full" />
-                          </div>
-                          <span className="font-medium">{skill.name}</span>
-                        </div>
-                        <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-500 ease-out group-hover:opacity-80"
-                            style={{ width: `${skill.level}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-medium mb-6 flex items-center gap-2">
-                    <Cpu className="h-5 w-5" /> Backend Development
+                    <Server className="h-5 w-5" /> Backend
                   </h3>
                   <div className="space-y-6">
                     {skills.backend.map((skill) => (
                       <div key={skill.name} className="group">
                         <div className="flex items-center gap-4 mb-2">
                           <div className="w-8 h-8 rounded-lg bg-background/80 p-1.5 shadow-sm">
-                            <img src={skill.logo} alt={skill.name} className="w-full h-full" />
+                            <img
+                              src={skill.logo}
+                              alt={skill.name}
+                              className="w-full h-full"
+                            />
                           </div>
                           <span className="font-medium">{skill.name}</span>
                         </div>
@@ -273,14 +312,45 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-medium mb-6 flex items-center gap-2">
-                    <Server className="h-5 w-5" /> DevOps & Cloud
+                    <Cpu className="h-5 w-5" /> Infra & DevOps
                   </h3>
                   <div className="space-y-6">
-                    {skills.devops.map((skill) => (
+                    {skills.infra.map((skill) => (
                       <div key={skill.name} className="group">
                         <div className="flex items-center gap-4 mb-2">
                           <div className="w-8 h-8 rounded-lg bg-background/80 p-1.5 shadow-sm">
-                            <img src={skill.logo} alt={skill.name} className="w-full h-full" />
+                            <img
+                              src={skill.logo}
+                              alt={skill.name}
+                              className="w-full h-full"
+                            />
+                          </div>
+                          <span className="font-medium">{skill.name}</span>
+                        </div>
+                        <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-500 ease-out group-hover:opacity-80"
+                            style={{ width: `${skill.level}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-6 flex items-center gap-2">
+                    <Code className="h-5 w-5" /> AI & Async Systems
+                  </h3>
+                  <div className="space-y-6">
+                    {skills.ai.map((skill) => (
+                      <div key={skill.name} className="group">
+                        <div className="flex items-center gap-4 mb-2">
+                          <div className="w-8 h-8 rounded-lg bg-background/80 p-1.5 shadow-sm">
+                            <img
+                              src={skill.logo}
+                              alt={skill.name}
+                              className="w-full h-full"
+                            />
                           </div>
                           <span className="font-medium">{skill.name}</span>
                         </div>
@@ -298,67 +368,143 @@ export default function Home() {
             </Card>
           </TabsContent>
 
+          {/* Projects */}
           <TabsContent value="projects" className="mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-              {/* Sales Companion (CRM) */}
               <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
-                <h3 className="text-xl font-semibold mb-3">Sales Companion (CRM)</h3>
-                <p className="text-muted-foreground mb-6">
-                  A <strong>feature-rich CRM</strong> designed for sales teams to <strong>track leads, manage clients, and boost productivity</strong>.
-                  Built with <strong>Laravel, PostgreSQL, and Livewire</strong>, it offers <strong>real-time analytics, automated workflows, and role-based access control</strong>.
+                <h3 className="text-xl font-semibold mb-2">MCP Agentic Loop</h3>
+                <p className="text-xs text-muted-foreground mb-3">
+                  Production · Iclosed
                 </p>
-              </Card>
-
-              {/* Foodica – AI Calorie Tracker */}
-              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
-                <h3 className="text-xl font-semibold mb-3">Foodica – AI Calorie Tracker</h3>
-                <p className="text-muted-foreground mb-6">
-                  A <strong>React Native</strong> mobile app powered by <strong>AI-based food recognition</strong> to estimate caloric values from images.
-                  Utilizes <strong>TensorFlow for CNNs</strong> to accurately detect and classify food items.
-                  Built with <strong>React Native, TensorFlow, and OpenCV</strong> to provide <strong>real-time nutritional insights and meal tracking</strong> for a healthier lifestyle.
+                <p className="text-muted-foreground mb-4">
+                  Text-to-workflow AI system built from scratch. Users describe
+                  a business process in plain English; the system generates and
+                  saves an executable workflow automatically. Built a five-tool
+                  MCP architecture (search_nodes, get_node_schema,
+                  get_external_data, create_workflow, save_workflow_graph) with
+                  a registry pattern and auth context propagation. Capped at 20
+                  iterations to prevent runaway loops. Tested and benchmarked
+                  across Claude, Gemini, Ollama, and Grok with documented
+                  findings.
                 </p>
-
-              </Card>
-
-              {/* AI Facial Detector */}
-              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
-                <h3 className="text-xl font-semibold mb-3">AI Facial Detector</h3>
-                <p className="text-muted-foreground mb-6">
-                  A <strong>cutting-edge AI facial recognition app</strong> that detects and analyzes faces in real-time.
-                  Built using <strong>React Native, TensorFlow.js, and OpenCV</strong>, it enables <strong>biometric authentication, emotion detection, and security monitoring</strong>.
-                </p>
-              </Card>
-
-              {/* E-Commerce Platform */}
-              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors rounded-lg shadow-lg">
-                <h3 className="text-xl font-semibold mb-3">AI Blog Summarizer</h3>
-                <p className="text-muted-foreground mb-6">
-                  A <strong>React Application</strong> that utilizes OpenAI APIs to extract summaries from text.
-                  Developed with <strong>React.js, Tailwind, OpenAI</strong>.
-                </p>
-                <div className="flex gap-4">
-                  {/* GitHub Button */}
-                  <Link href="https://github.com/saumanarsad/AI-Blog-Summary" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="gap-2">
-                      <Github size={18} /> GitHub
-                    </Button>
-                  </Link>
-
-                  {/* Live Project Button */}
-                  <Link href="https://ai-blog-summary.vercel.app/" target="_blank" rel="noopener noreferrer">
-                    <Button variant="default" className="gap-2">
-                      <ExternalLink size={18} /> Live Project
-                    </Button>
-                  </Link>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Node.js",
+                    "TypeScript",
+                    "MCP",
+                    "Claude API",
+                    "Gemini",
+                    "Ollama",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-secondary px-2 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </Card>
 
+              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
+                <h3 className="text-xl font-semibold mb-2">
+                  BullMQ Workflow Execution Engine
+                </h3>
+                <p className="text-xs text-muted-foreground mb-3">
+                  Production · Iclosed
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  Async workflow execution engine powering multi-step business
+                  automation. Handles wait/resume state management, failure
+                  branch routing, and multi-channel messaging (WhatsApp, email).
+                  Real-time execution feedback via WebSocket. Deployed on AWS
+                  ECS with Docker.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Node.js",
+                    "BullMQ",
+                    "Redis",
+                    "WebSocket",
+                    "AWS ECS",
+                    "Docker",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-secondary px-2 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </Card>
 
+              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
+                <h3 className="text-xl font-semibold mb-2">
+                  Webhook Delivery Service
+                </h3>
+                <p className="text-xs text-muted-foreground mb-3">
+                  Open Source · In Progress
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  Production-grade webhook delivery system with guaranteed
+                  delivery, retry logic with exponential backoff, dead-letter
+                  queues, per-endpoint failure tracking, and a delivery log UI.
+                  Built to demonstrate real-world async backend architecture.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Node.js",
+                    "TypeScript",
+                    "BullMQ",
+                    "PostgreSQL",
+                    "Redis",
+                    "Docker",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-secondary px-2 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </Card>
 
+              <Card className="p-8 backdrop-blur-sm bg-card/50 hover:bg-card/80 transition-colors">
+                <h3 className="text-xl font-semibold mb-2">
+                  Observability Integration
+                </h3>
+                <p className="text-xs text-muted-foreground mb-3">
+                  Production · Iclosed
+                </p>
+                <p className="text-muted-foreground mb-4">
+                  End-to-end observability stack integrating Datadog via AWS
+                  Lambda and CloudWatch, with Sentry for error tracking. Enables
+                  real-time monitoring, alerting, and distributed tracing across
+                  the production environment.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Datadog",
+                    "AWS Lambda",
+                    "CloudWatch",
+                    "Sentry",
+                    "Node.js",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-secondary px-2 py-1 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </Card>
             </div>
           </TabsContent>
 
+          {/* Experience */}
           <TabsContent value="experience" className="mt-8">
             <Card className="p-8 backdrop-blur-sm bg-card/50">
               <h2 className="text-2xl font-semibold mb-6">Work Experience</h2>
@@ -366,75 +512,101 @@ export default function Home() {
                 <div className="relative pl-6 border-l-2 border-primary/30">
                   <div className="absolute w-3 h-3 bg-primary rounded-full -left-[7px] top-2"></div>
                   <h3 className="text-xl font-medium">Software Engineer</h3>
-                  <p className="text-muted-foreground mb-3">Dubizzle Labs • Apr 2024 - Present</p>
+                  <p className="text-muted-foreground mb-3">
+                    Iclosed (US-based, Remote) · Jan 2025 – Present
+                  </p>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Built a powerful CRM system using Filament PHP for 10,000+ sales users.
+                    <li className="flex items-start gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                      Designed and built an MCP-based agentic loop from scratch,
+                      a text-to-workflow AI system using a five-tool
+                      architecture with registry pattern and auth context
+                      propagation, tested across Claude, Gemini, Ollama, and
+                      Grok.
                     </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Mastered Eloquent ORM, optimized data storage, and built dynamic dashboards.
+                    <li className="flex items-start gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                      Built a BullMQ-based workflow execution engine handling
+                      wait/resume states, failure branch routing, multi-channel
+                      messaging (WhatsApp, email), and real-time WebSocket
+                      feedback.
                     </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Enhanced frontend with Tailwind CSS and Livewire.
+                    <li className="flex items-start gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                      Integrated end-to-end observability using Datadog via AWS
+                      Lambda/CloudWatch and Sentry for distributed tracing and
+                      error monitoring.
                     </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Ensured code quality and provided constructive team feedback.
+                    <li className="flex items-start gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                      Deployed and maintained services on AWS ECS using Docker
+                      and CI/CD pipelines.
                     </li>
                   </ul>
                 </div>
+
                 <div className="relative pl-6 border-l-2 border-primary/30">
                   <div className="absolute w-3 h-3 bg-primary rounded-full -left-[7px] top-2"></div>
-                  <h3 className="text-xl font-medium">Associate Software Engineer</h3>
-                  <p className="text-muted-foreground mb-3">Dubizzle Labs • Jul 2023 - Apr 2024</p>
+                  <h3 className="text-xl font-medium">Software Engineer</h3>
+                  <p className="text-muted-foreground mb-3">
+                    Dubizzle Labs · Apr 2024 – Jan 2025
+                  </p>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Developed web apps with Laravel and React for high-traffic platforms.
+                    <li className="flex items-start gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                      Built and maintained a CRM system serving 10,000+ sales
+                      users using Laravel and Filament PHP.
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                      Optimized Eloquent ORM queries and database storage for
+                      high-traffic classifieds platform (MENA region).
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                      Conducted code reviews and improved team engineering
+                      standards.
                     </li>
                   </ul>
                 </div>
+
                 <div className="relative pl-6 border-l-2 border-primary/30">
                   <div className="absolute w-3 h-3 bg-primary rounded-full -left-[7px] top-2"></div>
-                  <h3 className="text-xl font-medium">Back End Developer</h3>
-                  <p className="text-muted-foreground mb-3">Upwork • Oct 2020 - Jun 2023</p>
+                  <h3 className="text-xl font-medium">
+                    Associate Software Engineer
+                  </h3>
+                  <p className="text-muted-foreground mb-3">
+                    Dubizzle Labs · Jul 2023 – Apr 2024
+                  </p>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Built and optimized web applications for various industries.
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Conducted client requirement analysis and implemented customized solutions.
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Ensured security, performance optimization, and testing.
+                    <li className="flex items-start gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                      Developed web services with Laravel for high-traffic
+                      classifieds platform serving millions of users across the
+                      MENA region.
                     </li>
                   </ul>
                 </div>
+
                 <div className="relative pl-6 border-l-2 border-primary/30">
                   <div className="absolute w-3 h-3 bg-primary rounded-full -left-[7px] top-2"></div>
-                  <h3 className="text-xl font-medium">Software Engineer Intern</h3>
-                  <p className="text-muted-foreground mb-3">Arbisoft • Jun 2022 - Sep 2022</p>
+                  <h3 className="text-xl font-medium">
+                    Software Engineer Intern
+                  </h3>
+                  <p className="text-muted-foreground mb-3">
+                    Arbisoft · Jun 2022 – Sep 2022
+                  </p>
                   <ul className="space-y-2 text-muted-foreground">
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Developed web applications using Python and Django.
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                      Implemented Django ORM for efficient database management.
+                    <li className="flex items-start gap-2">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
+                      Built web applications using Python and Django with Django
+                      ORM for database management.
                     </li>
                   </ul>
                 </div>
               </div>
             </Card>
           </TabsContent>
-
         </Tabs>
       </div>
     </main>
