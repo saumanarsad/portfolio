@@ -80,3 +80,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Faint grid behind the top of the page, fading out toward the bottom */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent);
+  mask-image: linear-gradient(to bottom, black 20%, transparent);
+}
