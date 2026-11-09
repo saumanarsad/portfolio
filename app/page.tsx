@@ -111,10 +111,7 @@ const experience: Job[] = [
   {
     company: "Iclosed",
     context: "US-based SaaS · Remote",
-    roles: [
-      { title: "Software Engineer (Mid-Level)", dates: "Oct 2026 – Present" },
-      { title: "Associate Software Engineer", dates: "Jan 2025 – Oct 2026" },
-    ],
+    roles: [{ title: "Software Engineer", dates: "Jan 2025 – Present" }],
     points: [
       "Designed and shipped the MCP text-to-workflow agentic system end to end.",
       "Built the BullMQ workflow execution engine behind customer automations: wait/resume, failure routing, multi-channel messaging.",
